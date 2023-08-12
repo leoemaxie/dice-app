@@ -6,9 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import android.util.Log
-import com.itsaky.androidide.logsender.LogSender
 import com.leo.diceapp.databinding.ActivityMainBinding
-
 
 /**
  * This activity allows users to roll dice and view their result
@@ -18,8 +16,6 @@ public class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Remove this line if you don't want AndroidIDE to show this app's logs
-        LogSender.startLogging(this@MainActivity)
         super.onCreate(savedInstanceState)
         // Inflate and get instance of binding
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -67,6 +63,6 @@ class Dice(private val numSides: Int) {
      * Generate a random number from 1 to 6
      */
     fun roll(): Int {
-        return (1..6).random()
+        return (1..numSides).random()
     }
 }
